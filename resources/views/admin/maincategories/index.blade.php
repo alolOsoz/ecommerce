@@ -70,7 +70,7 @@
                                                        class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
                                                     <a href="{{route('admin.maincategories.delete',$categorie -> id)}}"
                                                        class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
-                                                    <a href="{{route('admin.maincategories.delete',$categorie -> id)}}"
+                                                    <a href="{{route('admin.maincategories.changestatus',$categorie -> id)}}"
                                                        class="btn btn-outline-cyan btn-min-width box-shadow-3 mr-1 mb-1">الغاء التفعيل</a>
 
 

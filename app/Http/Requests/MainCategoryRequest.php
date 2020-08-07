@@ -13,7 +13,7 @@ class MainCategoryRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,20 @@ class MainCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'photo'=>'required_without:id|mimes:jpg,jpeg,png,ico',
+            'category'=>'required|array|min:1',
+            'category.*.name'=>'required',
+            'category.*.abbr'=>'required',
+           // 'category.*.active'=>'required',
+
         ];
+    }
+    public function messages()
+    {
+        return [
+            'required'=>'هذا الحقل مطلوب',
+
+        ];
+
     }
 }

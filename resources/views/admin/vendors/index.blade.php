@@ -5,13 +5,13 @@
     <div class="content-wrapper">
         <div class="content-header row">
             <div class="content-header-left col-md-6 col-12 mb-2">
-                <h3 class="content-header-title"> الاقسام الرئيسية </h3>
+                <h3 class="content-header-title"> المتاجر الرئيسية </h3>
                 <div class="row breadcrumbs-top">
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="">الرئيسية</a>
                             </li>
-                            <li class="breadcrumb-item active"> الاقسام
+                            <li class="breadcrumb-item active"> المتاجر
                             </li>
                         </ol>
                     </div>
@@ -25,7 +25,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">جميع الاقسام الرئيسية بالموقع </h4>
+                                <h4 class="card-title">جميع المتاجر بالموقع </h4>
                                 <a class="heading-elements-toggle"><i
                                         class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
@@ -48,29 +48,35 @@
                                         <thead>
                                         <tr>
                                             <th> الاسم</th>
-                                            <th>اللغة</th>
+                                            <th>الشعار</th>
+                                            <th>الهاتف</th>
+                                            <th>العنوان</th>
+                                            <th>البريد الالكترونى</th>
+                                            <th>القسم الرئيسى</th>
                                             <th>الحالة</th>
-                                            <th>الصورة</th>
                                             <th>الإجراءات</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @isset($categories)
-                                            @foreach($categories as $categorie)
+                                        @isset($vendors)
+                                            @foreach($vendors as $vendor)
                                         <tr>
-                                            <<td>{{$categorie -> name}}</td>
-                                            <td>{{get_default_lang()}}</td>
-                                            <td>{{$categorie -> getActive()}}</td>
-                                            <td><img style="height: 100px; width: 100px; "  src="{{$categorie -> photo}}"> </td>
+                                            <<td>{{$vendor -> name}}</td>
+                                            <td><img style="height: 100px; width: 100px; "  src="{{$vendor -> logo}}"> </td>
+                                            <<td>{{$vendor -> mobile}}</td>
+                                            <<td>{{$vendor -> address}}</td>
+                                            <<td>{{$vendor -> email}}</td>
+                                            <<td>{{$vendor -> category->name}}</td>
+                                            <<td>{{$vendor -> getActive()}}</td>
 
                                             <td>
                                                 <div class="btn-group" role="group"
                                                      aria-label="Basic example">
-                                                    <a href="{{route('admin.maincategories.edit',$categorie -> id)}}"
+                                                    <a href="{{route('admin.vendors.edit',$vendor -> id)}}"
                                                        class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
-                                                    <a href="{{route('admin.maincategories.delete',$categorie -> id)}}"
+                                                    <a href="{{route('admin.vendors.delete',$vendor -> id)}}"
                                                        class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
-                                                    <a href="{{route('admin.maincategories.delete',$categorie -> id)}}"
+                                                    <a href="{{route('admin.vendors.delete',$vendor -> id)}}"
                                                        class="btn btn-outline-cyan btn-min-width box-shadow-3 mr-1 mb-1">الغاء التفعيل</a>
 
 
